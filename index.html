@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Riedemann · Planificación Financiera Integral</title>
+    <meta name="description" content="Pablo Riedemann — Planificación Financiera Integral. Conferencia SOCHIRA, Huilo Huilo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #fafafa;
+            --color-surface: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-muted: #6b6b6b;
+            --color-border: #e5e5e5;
+            --font-heading: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+        }
+
+        /* ── FULL-PAGE LAYOUT ── */
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .nav-badge {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 100px;
+            letter-spacing: 0.03em;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 2rem 3rem;
+            max-width: 880px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ── HERO (compact) ── */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-logo {
+            display: block;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero-logo img {
+            height: 28px;
+            width: auto;
+            opacity: 0.7;
+        }
+
+        .hero-tag {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--color-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--color-text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── CARDS ── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 2rem 1.75rem;
+            text-decoration: none;
+            color: var(--color-text);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: #ccc;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--color-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--color-text);
+        }
+
+        .card-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-text);
+            letter-spacing: 0.01em;
+        }
+
+        .card-cta svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-cta svg {
+            transform: translateX(4px);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--color-text);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 1.5rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            flex-shrink: 0;
+        }
+
+        footer strong {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .main {
+                padding: 1.5rem 1.25rem 2rem;
+            }
+
+            nav {
+                padding: 0.85rem 1.25rem;
+            }
+
+            .hero {
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.25rem;
+            }
+
+            footer {
+                padding: 1.25rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+
+        <!-- NAV -->
+        <nav>
+            <a href="#" class="nav-logo">Pablo Riedemann</a>
+            <span class="nav-badge">SOCHIRA 2026 · Huilo Huilo</span>
+        </nav>
+
+        <!-- MAIN: Hero + Cards, all above the fold -->
+        <main class="main">
+
+            <section class="hero">
+                <a href="https://www.nauta.pro/" target="_blank" rel="noopener" class="hero-logo">
+                    <img src="data:image/png;base64,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" alt="Nauta">
+                </a>
+                <span class="hero-tag">Conferencia SOCHIRA · Huilo Huilo</span>
+                <h1>Planificación Financiera Integral</h1>
+                <p>Conectemos para conversar sobre cómo construir un plan financiero que se adapte a tu vida y tus objetivos.</p>
+            </section>
+
+            <div class="cards-grid">
+
+                <!-- Card 1: Agendar conversación -->
+                <a href="https://tidycal.com/pabloriedemann/conversacion-sochira" target="_blank" rel="noopener" class="card">
+                    <div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h2>Agenda una conversación</h2>
+                            <p>Reserva un espacio para conversar sobre planificación financiera, sin compromiso. Elige el horario que más te acomode.</p>
+                        </div>
+                    </div>
+                    <span class="card-cta">
+                        Agendar ahora
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Card 2: Cuestionario 5 Tipos de Riqueza -->
+                <a href="https://nautapro.typeform.com/riqueza" target="_blank" rel="noopener" class="card">
+                    <div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h2>5 Tipos de Riqueza</h2>
+                            <p>Descubre cómo estás distribuido en las cinco dimensiones de la riqueza con este cuestionario rápido.</p>
+                        </div>
+                    </div>
+                    <span class="card-cta">
+                        Responder cuestionario
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                        </svg>
+                    </span>
+                </a>
+
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <strong>Pablo Riedemann</strong> · Planificación Financiera Integral · SOCHIRA 2026
+        </footer>
+
+    </div>
+
+</body>
+</html>
